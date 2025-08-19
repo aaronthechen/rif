@@ -396,7 +396,6 @@ fn decompress_content(compressed_data: &[u8]) -> anyhow::Result<String> {
 fn open_in_ableton() -> anyhow::Result<()> {
     let als_path = find_als_file()?;
 
-    // Look in /Applications for an Ableton app
     let apps = fs::read_dir("/Applications")?
         .filter_map(Result::ok)
         .map(|e| e.file_name().into_string().ok())
@@ -408,13 +407,11 @@ fn open_in_ableton() -> anyhow::Result<()> {
         anyhow::bail!("No Ableton Live installation found in /Applications");
     }
 
-    // Use the first one found (sorted for consistency)
     let mut apps_sorted = apps;
-    apps_sorted.sort(); // Optional: prioritizes lower version numbers
+    apps_sorted.sort(); 
     let ableton_app = &apps_sorted[0];
     let app_name = ableton_app.trim_end_matches(".app");
 
-    // Build the open command
     let status = std::process::Command::new("open")
         .arg("-a")
         .arg(app_name)
