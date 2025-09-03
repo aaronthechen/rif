@@ -2,7 +2,7 @@
 
 `rif` is a lightweight, space-efficient version control system specifically designed for Ableton Live projects (.als files). 
 
-It helps you track changes to your music projects without consuming excessive disk space.
+It helps you track changes to your music projects without consuming excessive disk space, with some versions being <10% of the original file size!
 
 ## Features
 
@@ -13,11 +13,11 @@ It helps you track changes to your music projects without consuming excessive di
 
 ## How It Works
 
-`rif` uses a Git-inspired approach to version control:
+`rif` uses a modified Git-like approach to version control:
 
 1. The latest commit is stored as a full snapshot of your Ableton Live project
-2. Previous versions are stored as space-efficient diffs
-3. When checking out older versions, diffs are applied sequentially to reconstruct the project state
+2. Previous versions are stored as space-efficient reverse diffs (different from git)
+3. When checking out older versions, diffs are applied in reverse-chronological order to reconstruct the project state
 
 ## Installation
 
