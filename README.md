@@ -29,7 +29,7 @@ It helps you track changes to your music projects without consuming excessive di
 ### Building from Source
 
 ```sh
-git clone https://github.com/yourusername/rif.git
+git clone https://github.com/aaronthechen/rif.git
 cd rif
 cargo build --release
 ```
